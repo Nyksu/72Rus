@@ -1,0 +1,35 @@
+<SCRIPT LANGUAGE=VBScript RUNAT=Server>
+SUB Session_OnStart
+   Application.lock
+   Application("visitors") = Application("visitors") + 1
+   Application.unlock
+END SUB
+</script>
+<SCRIPT LANGUAGE=VBScript RUNAT=Server>
+SUB Session_OnEnd
+   Application.lock
+   Application("visitors") = Application("visitors") - 1
+   Application.unlock
+END SUB
+</script>
+
+<OBJECT
+	RUNAT="Server"
+	SCOPE="Application" 
+	ID="conquerChatUsers"
+	PROGID="Scripting.Dictionary">
+</OBJECT>
+
+<OBJECT
+	RUNAT="Server"
+	SCOPE="Application" 
+	ID="conquerChatRooms"
+	PROGID="Scripting.Dictionary">
+</OBJECT>
+
+<OBJECT
+	RUNAT="Server"
+	SCOPE="Application" 
+	ID="conquerChatMessages"
+	PROGID="Scripting.Dictionary">
+</OBJECT>
